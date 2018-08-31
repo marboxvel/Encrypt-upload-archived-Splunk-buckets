@@ -14,6 +14,7 @@ If you set the coldToFrozenScript attribute in indexes.conf, the script you spec
 You'll need to supply the actual script. Typically, the script will archive the data, but you can provide a script that performs any action you want.
 
 In Splunk cluster setup:
+
 Add this stanza to /opt/splunk/etc/master-apps/_cluster/local/indexes.conf:
 Indexes.conf
 [<index>]
@@ -36,7 +37,7 @@ coldToFrozenScript = "/bin/python" "/scripts/splunk_archive_script/coldToFrozenP
     python2-boto.noarch
     python2-gnupg.noarch
 
- 2- A logging module is written so the script can log to /var/log/splunk_archive.log (needed to be set in the script). The module must exist where the archive script is stored, /scripts/splunk_archive_script/coldToFrozenPlusS3Uplaod.py.
+ 2- A logging module is written so the script can log in a nice way to /var/log/splunk_archive.log (needed to be set in the script). The module must exist where the archive script is stored, /scripts/splunk_archive_script/coldToFrozenPlusS3Uplaod.py.
     The module name is applyLogging.py
 
  3- Don't use the Python shipped with Splunk, coldToFrozenScript = "$SPLUNK_HOME/bin/python", it doesn't have boto and gnupg installed, but make sure to use coldToFrozenScript = "/bin/python"
