@@ -41,3 +41,9 @@ coldToFrozenScript = "/bin/python" "/scripts/splunk_archive_script/coldToFrozenP
 
  3- Don't use the Python shipped with Splunk, coldToFrozenScript = "$SPLUNK_HOME/bin/python", it doesn't have boto and gnupg installed, but make sure to use coldToFrozenScript = "/bin/python"
 
+Make sure the following variables are set in the script
+script_path = '' #for the logging library
+log_file_path = '' #Where you want the ascript to log to. For example /var/log/splunk_archive.log
+gnu_home_dir = '' #where the gpg directory is. For example /home/s3/.gnupg/
+reciepient_email = '' #the email the gpg uses to encrypt the files
+
